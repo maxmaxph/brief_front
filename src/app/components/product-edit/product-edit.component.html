@@ -1,0 +1,76 @@
+<div class="container" *ngIf="productForm">
+  <h2 class="mt-5 mb-4 text-center">Edit the product</h2>
+  <form
+    [formGroup]="productForm"
+    (ngSubmit)="onSubmit()"
+    class="bg-light p-5 rounded shadow"
+  >
+    <!-- Name, Qty, price, cat -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+          placeholder="Enter the product name"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input
+          type="text"
+          class="form-control"
+          id="quantity"
+          formControlName="quantity"
+          placeholder="Enter the quantity"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <label for="price" class="form-label">Price</label>
+        <input
+          type="text"
+          class="form-control"
+          id="price"
+          formControlName="price"
+          placeholder="New price"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="category_id" class="form-label">Category</label>
+        <select
+          class="form-control"
+          id="category_id"
+          formControlName="category_id"
+        >
+          <option *ngFor="let category of categories" [value]="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Submit & return Button -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-lg" [disabled]="productForm.invalid">
+        Validate
+      </button>
+      <button
+        routerLink="/admin"
+        class="btn btn-lg"
+        [disabled]="productForm.invalid"
+      >
+        Return to admin
+      </button>
+    </div>
+  </form>
+</div>
