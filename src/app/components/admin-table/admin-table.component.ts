@@ -29,18 +29,18 @@ export class AdminTableComponent implements OnInit {
           }
   deleteProduct(id: number): void {
     this.productService.deleteProduct(id).subscribe(() => {
-      console.log('producte deleted');
+
       this.deletedEntityType = 'product';
       this.isModalVisible = true; //Afffiche la modal
       this.products = this.products.filter((product) => product.id !== id);
     });
   }
-  // Fonction pour ouvrir la modal
+ 
   showModal() {
     this.isModalVisible = true;
   }
 
-  // Fonction pour fermer la modal
+
   closeModal() {
     this.isModalVisible = false;
   }

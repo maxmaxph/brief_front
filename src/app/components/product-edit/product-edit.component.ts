@@ -29,7 +29,7 @@ export class ProductEditComponent implements OnInit {
 
   productForm: FormGroup = this.fb.group({
     name: [''],
-    category_id: [''], // Assurez-vous que ceci est présent
+    category_id: [''],
     quantity: [''],
     price: [''],
     phone: [false],
@@ -44,7 +44,7 @@ export class ProductEditComponent implements OnInit {
         this.product = product;
         this.productForm.patchValue({
           ...product,
-          category_id: product.category.id, // Définissez la valeur de category_id ici
+          category_id: product.category.id, 
         });
       });
     });
@@ -61,8 +61,8 @@ export class ProductEditComponent implements OnInit {
         ...this.productForm.value,
       };
       this.productService.updateProduct(updatedProduct).subscribe(() => {
-        console.log(updatedProduct);
-        this.router.navigate(['/admin']); // redirige vers la page d'accueil ou une autre route après la mise à jour
+      
+        this.router.navigate(['/admin']); 
       });
     }
   }

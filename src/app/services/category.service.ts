@@ -42,6 +42,4 @@ export class CategoryService {
       this.getHttpOptions()
     );
   }
-
-
 }

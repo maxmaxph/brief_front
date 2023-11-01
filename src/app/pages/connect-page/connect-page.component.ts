@@ -25,27 +25,25 @@ export class ConnectPageComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const userLogin: User = this.loginForm.value; // On récupère les données du formulaire
-      console.log('je suis dans le submit, userLogin = ', userLogin);
+      const userLogin: User = this.loginForm.value; 
+ 
       this.userService.loginUser(userLogin).subscribe(
         (res: Token) => {
-          // On envoie l'utilisateur au serveur
-          console.log('je suis dans le submit et je récupère res = ', res);
-          const token = res.accessToken; // On récupère le token
+       
+         
+          const token = res.accessToken; 
 
-          // Stocker le token dans le localStorage
+        
           localStorage.setItem('token', token);
 
-
-
-          // Afficher la modale de succès
+       
           const loginModalElement = document.getElementById(
             'loginModal'
           ) as HTMLElement;
           const loginModal = new Modal(loginModalElement);
           loginModal.show();
 
-          // console.log('Token:', token);
+
         },
         (error: any) => {
           const errorModalElement = document.getElementById(
@@ -53,7 +51,6 @@ export class ConnectPageComponent {
           ) as HTMLElement;
           const errorModal = new Modal(errorModalElement);
           errorModal.show();
-          console.error('Erreur lors de la connexion:', error);
         }
       );
     }

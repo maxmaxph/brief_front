@@ -14,7 +14,7 @@ export class NavbarComponent {
   onLogout(): void {
     this.userService.logout();
 
-    // Afficher la modale de déconnexion
+    
     const logoutModalElement = document.getElementById(
       'logoutModal'
     ) as HTMLElement;

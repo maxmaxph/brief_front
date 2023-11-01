@@ -26,7 +26,7 @@ export class AddProductComponent implements OnInit {
 
   productForm: FormGroup = this.fb.group({
     name: [''],
-    category_id: [''], // Assurez-vous que ceci est présent
+    category_id: [''], 
     quantity: [''],
     price: [''],
     phone: [false],
@@ -35,27 +35,27 @@ export class AddProductComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    // Récupération des catégories
+   
     this.categoryService.getCategory().subscribe((categories) => {
       this.categories = categories;
     });
   }
 
   onSubmit() {
-    // Envoi du formulaire de création
+    
 
-    const newProduct: Product = this.productForm.value; // On récupère les données du formulaire
-    newProduct.category_id = Number(newProduct.category_id); // On convertit l'id de la catégorie en nombre
-    console.log(newProduct);
+    const newProduct: Product = this.productForm.value; 
+    newProduct.category_id = Number(newProduct.category_id); 
+  
 
     this.productService.createProduct(newProduct).subscribe(() => {
-      console.log('mise à jour effectuée');
+    
       const submissionModalElement = document.getElementById(
         'submissionModal'
       ) as HTMLElement;
       const submissionModal = new Modal(submissionModalElement);
       submissionModal.show();
-      this.productForm.reset(); // Reset le formulaire si nécessaire
+      this.productForm.reset();
     });
   }
 }

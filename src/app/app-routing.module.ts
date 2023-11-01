@@ -9,7 +9,6 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AddProductComponent } from './components/add-product/add-product.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
@@ -20,7 +19,7 @@ const routes: Routes = [
     component: ProductEditComponent,
     canActivate: [AuthGuard],
   },
-  {path: 'add', component: AddProductComponent, canActivate: [AuthGuard]},
+  { path: 'add', component: AddProductComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent },
 ];
 
