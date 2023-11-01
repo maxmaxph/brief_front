@@ -10,13 +10,18 @@ import { Modal } from 'bootstrap';
 export class NavbarComponent {
   constructor(private userService: UserService) {}
 
+  
   onLogout(): void {
     this.userService.logout();
 
     // Afficher la modale de déconnexion
-    const logoutModalElement = document.getElementById('logoutModal') as HTMLElement;
+    const logoutModalElement = document.getElementById(
+      'logoutModal'
+    ) as HTMLElement;
     const logoutModal = new Modal(logoutModalElement);
     logoutModal.show();
   }
-  }
+
+ 
+}
 

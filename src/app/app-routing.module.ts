@@ -7,6 +7,7 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
     component: ProductEditComponent,
     canActivate: [AuthGuard],
   },
+  {path: 'add', component: AddProductComponent, canActivate: [AuthGuard]},
   { path: '**', component: PageNotFoundComponent },
 ];
 

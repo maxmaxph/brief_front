@@ -1,103 +1,108 @@
-<body>
-  <div class="wrapper">
-    <form [formGroup]="loginForm" (submit)="onSubmit()">
-      <div class="mb-3">
-        <label for="email" class="form-label">Adresse mail</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          aria-describedby="emailHelp"
-          formControlName="email"
-          required
-        />
-        <div id="emailHelp" class="form-text">
-          "Nous ne partagerons jamais votre Email"
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label"
-          >Mot de passe</label
+
+      <div class="container">
+        <form [formGroup]="loginForm" (submit)="onSubmit()">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              formControlName="email"
+              required
+               autocomplete="email"
+            />
+            <div id="emailHelp" class="form-text">
+              "We'll never share your email"
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+              required
+              autocomplete="current-password"
+            />
+          </div>
+          
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!loginForm.valid"
+          >
+            LOGIN
+          </button>
+        </form>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="loginModal"
+          tabindex="-1"
+          aria-labelledby="loginModalLabel"
+          aria-hidden="true"
         >
-        <input type="password" class="form-control" id="password" formControlName="password"
-                required/>
-      </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-        <label class="form-check-label" for="exampleCheck1"
-          >se rappeler de moi</label
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">
+                  Successful Login
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">You are now logged in!</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                  [routerLink]="['/admin']"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Error Modal -->
+        <div
+          class="modal fade"
+          id="errorModal"
+          tabindex="-1"
+          aria-labelledby="errorModalLabel"
+          aria-hidden="true"
         >
-      </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">CONNEXION</button>
-    </form>
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="loginModal"
-      tabindex="-1"
-      aria-labelledby="loginModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">Connexion réussie</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">Vous êtes maintenant connecté!</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-              [routerLink]="['/admin']"
-            >
-              Fermer
-            </button>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="errorModalLabel">Login Error</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                An error occurred during login. Please try again.
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Error Modal -->
-    <div
-      class="modal fade"
-      id="errorModal"
-      tabindex="-1"
-      aria-labelledby="errorModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="errorModalLabel">
-              Erreur de connexion
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            Une erreur est survenue lors de la connexion. Veuillez réessayer.
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Fermer
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>

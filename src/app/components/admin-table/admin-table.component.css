@@ -1,7 +1,4 @@
-.container {
-    margin-top: 100px;
-    margin-bottom: 50px;
-}
+
 .modal {
     display: block;
     position: fixed;
@@ -25,6 +22,15 @@
   .table td {
     word-wrap: break-word;
 }
+.titleadd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
 
   @media (max-width: 768px) {
     table, thead, tbody, th, td, tr {

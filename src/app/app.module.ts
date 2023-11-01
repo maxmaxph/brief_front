@@ -13,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
     ProductEditComponent,
     HomePageComponent,
     ProductListComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
